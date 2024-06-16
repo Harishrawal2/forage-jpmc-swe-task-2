@@ -1,0 +1,53 @@
+1. **Commit your changes**: Ensure all your changes are committed. This involves staging your changes and then committing them with a message.
+
+   ```sh
+   git add src/App.tsx src/Graph.tsx
+   git commit -m "Implement continuous data streaming and update graph rendering"
+   ```
+
+2. **Create the patch file**: Assuming you have made a single commit with all the required changes, you can create a patch file using the following command:
+
+   ```sh
+   git format-patch -1 HEAD
+   ```
+
+   This command will create a `.patch` file in your current directory.
+
+If you have multiple commits and want to include all of them in the patch file, adjust the `-n` flag to the number of commits you want to include. For example, if you made 3 commits:
+
+```sh
+git format-patch -3 HEAD
+```
+
+Alternatively, you can create a patch file that includes all commits since a specific commit. For example, if the commit hash before your changes is `abc123`:
+
+```sh
+git format-patch abc123..HEAD
+```
+
+### Example
+
+Here's a detailed example assuming you've made a single commit for all changes:
+
+1. **Make sure you are in the root directory of your project**:
+   ```sh
+   cd path/to/your/project
+   ```
+
+2. **Add your changes to git**:
+   ```sh
+   git add src/App.tsx src/Graph.tsx
+   ```
+
+3. **Commit your changes**:
+   ```sh
+   git commit -m "Implement continuous data streaming and update graph rendering"
+   ```
+
+4. **Create the patch file**:
+   ```sh
+   git format-patch -1 HEAD
+   ```
+
+This will create a file like `0001-Implement-continuous-data-streaming-and-update-graph.patch`.
+
